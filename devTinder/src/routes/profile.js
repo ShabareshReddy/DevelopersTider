@@ -4,8 +4,6 @@ const { userAuth }=require("../middlewares/auth.js");
 const {validateEditProfileData}=require("../utils/validations.js")
 
 
-
-
 profileRouter.get("/profile",userAuth,(req,res)=>{
   try{
     const loggedInUser=req.user
@@ -15,7 +13,7 @@ profileRouter.get("/profile",userAuth,(req,res)=>{
   }
 })
 
-profileRouter.put("/profile",userAuth,async(req,res)=>{
+profileRouter.patch("/profile",userAuth,async(req,res)=>{
     try{
       if (!validateEditProfileData(req)){
         throw new Error("invalid edit request");

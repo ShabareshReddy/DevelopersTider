@@ -12,7 +12,7 @@ const userAuth=async(req,res,next)=>{
     }
     const decodedData=await jwt.verify(
       token,
-      JWT_SECRET
+      JWT_SECRET,
   )
   const {_id} =decodedData
   console.log(_id)
