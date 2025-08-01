@@ -2,7 +2,7 @@ const mongoose=require("mongoose");
 
 const connectionDB=async()=>{
     await mongoose.connect(
-        "mongodb+srv://milkabhau87:GleGiiEKvQj3GMfD@namastenode.e5moccv.mongodb.net/divInder"
+        "mongodb+srv://milkabhau87:TzHQ9RuMGLHembNJ@namastenode.e5moccv.mongodb.net/divTinder"
     );
 };
 

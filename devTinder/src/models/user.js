@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
 const validator=require("validator");
+
 const userSchema=new mongoose.Schema({
     firstName:{
         type:"String",
@@ -7,11 +8,12 @@ const userSchema=new mongoose.Schema({
         
     },
     lastName:{
-        type:String
+        type:String,
+        
     },
      photoUrl:{
         type:String,
-        
+        default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRD7Q19DRsBsG9YP8VVeKCwzAUv8VqE_TqdNn9aFAihZyng5IKPPouN463Kt7CW8dnag0&usqp=CAU"   
     },
     email:{
         type:String,
@@ -21,7 +23,7 @@ const userSchema=new mongoose.Schema({
         minLength:4,
         maxLength:50,
         validate(value){
-            if(!validator.isEmail(value)){
+            if(!validator.isEmail(value)){      //akshaysaingmail.com
                 throw new Error("it is not valid email")
             }
         }

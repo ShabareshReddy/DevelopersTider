@@ -7,7 +7,7 @@
     "javascript"
   ],
   "license": "ISC",
-  "author": "Shiva",
+  "author": "Shbaresh Reddy",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

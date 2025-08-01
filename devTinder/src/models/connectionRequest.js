@@ -1,14 +1,15 @@
 const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
 
-const connectionRequestSchema=new mongoose.Schema({
+const connectionRequestSchema=new Schema({
 
     fromUserId:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         required:true,
         ref:"User",
     },
     toUserId:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         required:true,
         ref:"User",
     },
