@@ -14,13 +14,13 @@ function App() {
     <Provider store={appStore}>
    <BrowserRouter basename="/">
       <Routes>
-      <Route path="/" element={<Body/>} >
-      <Route path="/" element={<Feed/>} />
+      {/* <Route path="/" element={<Body/>} > */}
+      <Route path="/feed" element={<Feed/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/profile" element={<Profile/>} />
       <Route path="/connections" element={<Connections/>} />
       <Route path="/requests" element={<Requests/>} />
-      </Route>
+      {/* </Route> */}
       </Routes>
    </BrowserRouter>
    </Provider>

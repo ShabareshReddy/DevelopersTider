@@ -3,6 +3,7 @@ import UserCard from "./UserCard";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EditProfile=({user})=>{
@@ -17,11 +18,12 @@ const EditProfile=({user})=>{
         const[showToast,setShowToast]=useState(false);
 
         const dispatch=useDispatch();
+        const navigate=useNavigate();
 
         const saveEdits=async()=>{
            
             try{
-                const res=await axios.put(BASE_URL + "/profile",{
+                const res=await axios.patch(BASE_URL + "/profile",{
                     firstName,
                     lastName,
                     photoUrl,
@@ -34,13 +36,11 @@ const EditProfile=({user})=>{
                 setTimeout(() => {
                     setShowToast(false);
                 }, 3000);
-                navigate("/");
+                navigate("/feed");
             }catch(err){
               
             }
         }
-        
-
     return(
         <div className="flex justify-center my-10">
         <div className="flex justify-center mx-10">

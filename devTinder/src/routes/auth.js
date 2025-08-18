@@ -9,22 +9,28 @@ const JWT_SECRET="NamasteBhai@1234"
 
 
 authRouter.post("/signup",async(req,res)=>{``
-    try{
-        validateSignUpData(req)
-        const { firstName, lastName, email,password }=req.body;
-        const passwordHash=await bcrypt.hash(password,10);
-        const user=User.create({
+    try {
+        validateSignUpData(req);
+        const { firstName, lastName, email, password } = req.body;
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "Email already registered" });
+        }
+
+        const passwordHash = await bcrypt.hash(password, 10);
+        const user = await User.create({
             firstName,
             lastName,
             email,
-            password:passwordHash,
-        })
+            password: passwordHash,
+        });
         res.json({
-            message:"succesfully signedUp"
-        })
-
-    }catch(error){
-        res.status(400).send("ERROR " + err.message)
+            message: "successfully signedUp"
+        });
+    } catch (error) {
+        res.status(400).send("ERROR " + error.message);
     }
 })
 
