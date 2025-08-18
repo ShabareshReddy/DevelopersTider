@@ -75,7 +75,7 @@ const token=await jwt.sign({_id:user._id},JWT_SECRET,{
 
 userSchema.methods.validatePassword=async function(passwordInputByUser){
     const user =this;
-    const isPasswordValid=await bacrypt.compare(passwordInputByUser,user.password);
+    const isPasswordValid=await bcrypt.compare(passwordInputByUser,user.password);
     return isPasswordValid;
 }
 module.exports=mongoose.model("User",userSchema);

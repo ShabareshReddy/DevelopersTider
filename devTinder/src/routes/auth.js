@@ -8,8 +8,7 @@ const JWT_SECRET="NamasteBhai@1234"
 
 
 
-authRouter.post("/signup",async(req,res)=>{
-    
+authRouter.post("/signup",async(req,res)=>{``
     try{
         validateSignUpData(req)
         const { firstName, lastName, email,password }=req.body;
@@ -28,8 +27,6 @@ authRouter.post("/signup",async(req,res)=>{
         res.status(400).send("ERROR " + err.message)
     }
 })
-
-
 
 authRouter.post("/login",async(req,res)=>{
     try{

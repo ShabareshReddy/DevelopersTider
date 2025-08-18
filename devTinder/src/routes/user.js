@@ -5,7 +5,7 @@ const connectionRequest = require("../models/connectionRequest");
 const User = require("../models/user");
 
 
-// who is send request which is Pendind
+// who is send request which is Pending
 userRouter.get("/user/requests",userAuth,async(req,res)=>{
   try{
     const loggedInUser=req.user;

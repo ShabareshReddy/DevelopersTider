@@ -16,7 +16,7 @@ requestRouter.post("/request/send/:status/:toUserId",userAuth,async(req,res)=>{
         const allowedStatus=["interested","ignored"];
         if(!allowedStatus.includes(status)){
             return res.status(400).json({
-                message:"invalid status type"+status
+                message:"invalid status type"+ status
             });
         }
         const toUser=await User.findById(toUserId);
@@ -31,7 +31,7 @@ requestRouter.post("/request/send/:status/:toUserId",userAuth,async(req,res)=>{
             ]
         });
         if(existedConnectionRequest){
-            return   res.status(400).json({message:"connection existed already"});
+            return  res.status(400).json({message:"connection existed already"});
         }
 
         const newRequest=new connectionRequest({
