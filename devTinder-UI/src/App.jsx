@@ -7,6 +7,7 @@ import appStore from "./utils/appStore"
 import Feed from "./components/Feed"
 import Connections from "./components/Connections"
 import Requests from "./components/Requests"
+import Landing from "./components/Landing"
 
 
 function App() {
@@ -14,13 +15,13 @@ function App() {
     <Provider store={appStore}>
    <BrowserRouter basename="/">
       <Routes>
-      {/* <Route path="/" element={<Body/>} > */}
+      <Route path="/" element={<Body/>} >
+      <Route path="/" element={<Landing/>}/>
       <Route path="/feed" element={<Feed/>} />
-      <Route path="/login" element={<Login/>} />
       <Route path="/profile" element={<Profile/>} />
       <Route path="/connections" element={<Connections/>} />
       <Route path="/requests" element={<Requests/>} />
-      {/* </Route> */}
+      </Route>
       </Routes>
    </BrowserRouter>
    </Provider>

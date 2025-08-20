@@ -15,20 +15,20 @@ const Navbar=()=>{
           {withCredentials:true}
         );
         dispatch(removeUser());
-       navigate("/login");
+       navigate("/");
       }catch(err){
       }
     }
 
     return(
         <>
-        <div className=" navbar bg-neutral-200 shadow-sm">
+  <div className="navbar fixed w-full z-50 bg-transparent backdrop-blur-none text-white shadow-none">
   <div className="flex-1 ">
-    <Link to="/" className="btn btn-ghost text-xl">@devTinder</Link>
+  <Link to="/feed" className="btn btn-ghost text-xl text-white">DevKonneckt♾️</Link>
   </div>
- { user&& ( 
+ { user && ( 
   <div className="flex gap-2">
-  <div className="form-control font-bold  text-1xl">Welcome,{user.firstName}</div>
+  <div className="form-control font-bold text-1xl text-white">Welcome, {user.firstName}</div>
     <div className="dropdown dropdown-end mx-5">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -39,7 +39,7 @@ const Navbar=()=>{
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+  className="menu menu-sm dropdown-content bg-white/10 backdrop-blur-lg rounded-box z-1 mt-3 w-52 p-2 shadow text-white">
         <li>
           <Link to="/profile" className="justify-between">
             Profile

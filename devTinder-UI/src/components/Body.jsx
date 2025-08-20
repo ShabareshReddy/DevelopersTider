@@ -11,31 +11,27 @@ import axios from "axios";
 const Body=()=>{
    const dispatch=useDispatch();
    const navigate=useNavigate();
-   const userData=useSelector((store)=>store.user)
-    const fetchUser=async ()=>{
-        try{
-            const res=await axios.get(BASE_URL + "/profile",
-                {withCredentials:true},
-            );
-            dispatch(addUser(res.data));
-        }catch(err){
-            if (err.response?.status === 401) {
-            navigate("/login");
-        } else {
-            console.error("Failed to fetch user:", err);
-          }
-        
-            
-        }
-    };
-    useEffect(()=>{
-        fetchUser();
-    },[])
+   const userData = useSelector((store) => store.user);
+   const fetchUser = async () => {
+       try {
+           const res = await axios.get(BASE_URL + "/profile", { withCredentials: true });
+           dispatch(addUser(res.data));
+       } catch (err) {
+           if (err.response?.status === 401) {
+               // Not logged in, do nothing
+           } else {
+               console.error("Failed to fetch user:", err);
+           }
+       }
+   };
+   useEffect(() => {
+       if (!userData) fetchUser();
+   }, [userData]);
     return(
         <>
         <Navbar/>
         <Outlet/>
-        <Footer/>
+        {/* <Footer/> */}
         </>
     )
 }
